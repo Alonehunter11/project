@@ -1,0 +1,16 @@
+.background {
+    background-image: url('../../../assets/images/home.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    border-radius: 20px;
+    color: white;
+    padding: 30px; /* Adjust padding for the content */
+  }
+  

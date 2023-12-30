@@ -1,0 +1,73 @@
+<div class="container-fluid form">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form #myform="ngForm" (ngSubmit)="registerNow()" class="border rounded p-4 m-3" >
+          <h1>{{ message }}</h1>
+  
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <fieldset>
+                  <legend>Register Here! <span class="req"><small>*</small></span></legend>
+  
+                  <div class="form-group">
+                    <label for="customerName">Customer Name:</label>
+                    <input type="text" class="form-control" required [(ngModel)]="customer.customerName"
+                      name="customerName" maxlength="28" placeholder="Enter your full name...">
+                    <div class="alert alert-danger"
+                      *ngIf="myform.controls['customerName'].invalid && myform.controls['customerName'].touched">
+                      Customer Name is required
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="customerAdharno">Customer Aadhaar Number:</label>
+                    <input type="number" class="form-control" required [(ngModel)]="customer.customerAdharno"
+                      name="customerAdharno" placeholder="Enter valid Aadhaar number" min="0"
+                      oninput="validity.valid||(value='');">
+                    <div class="alert alert-danger"
+                      *ngIf="myform.controls['customerAdharno'].invalid && myform.controls['customerAdharno'].touched">
+                      Customer Aadhaar number is required
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="customerPanno">Customer PAN Number:</label>
+                    <input type="text" class="form-control" required [(ngModel)]="customer.customerPanno"
+                      name="customerPanno" placeholder="Enter valid PAN number">
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="customerPhone">Customer Phone Number:</label>
+                    <input type="text" class="form-control" required [(ngModel)]="customer.customerPhone"
+                      name="customerPhone" placeholder="Enter phone number" min="0"
+                      oninput="validity.valid||(value='');">
+                    <div class="alert alert-danger"
+                      *ngIf="myform.controls['customerPhone'].invalid && myform.controls['customerPhone'].touched">
+                      Customer Phone number is required
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="customerDrivinglisenceno">Customer Driving License Number:</label>
+                    <input type="text" class="form-control" required [(ngModel)]="customer.customerDrivinglisenceno"
+                      name="customerDrivinglisenceno" placeholder="Enter Driving License number">
+                    <div class="alert alert-danger"
+                      *ngIf="myform.controls['customerDrivinglisenceno'].invalid && myform.controls['customerDrivinglisenceno'].touched">
+                      Customer Driving License number is required
+                    </div>
+                  </div>
+  
+                  <div class="form-group text-center">
+                    <input class="btn btn-success w-50" [disabled]="myform.invalid" type="submit" name="submit_reg"
+                      value="Register">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

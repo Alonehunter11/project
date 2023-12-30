@@ -1,0 +1,60 @@
+<div class="container p-3">
+  <div class="row justify-content-end mb-3">
+      <div class="col-md-12">
+          <div id="custom-search-input" class="text-right">
+              <div class="input-group">
+                  <input type="text" class="search-query form-control" placeholder="Search by Vehicle" name="insuranceId"
+                      [(ngModel)]="insuranceId" />
+                  <span class="input-group-btn">
+                      <button class="btn btn-success" type="button" (click)="findUserById(insuranceId)">Search
+                          <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                  </span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+      <div class="col-md-12">
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th>Insurance ID</th>
+                      <th>Vehicle No</th>
+                      <th>Vehicle Color</th>
+                      <th>Vehicle Name</th>
+                      <th>Vehicle Price</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Update Vehicle</th>
+                      <th>Delete Vehicle</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let vehicle of vehicles">
+                      <td>{{ vehicle.insuranceId }}</td>
+                      <td>{{ vehicle.vehicleNo }}</td>
+                      <td>{{ vehicle.vehicleColour }}</td>
+                      <td>{{ vehicle.vehicleName }}</td>
+                      <td>{{ vehicle.vehiclePrice }}</td>
+                      <td>{{ vehicle.insuranceStartDate | date: 'shortDate'}}</td>
+                      <td>{{ vehicle.insuranceEndDate | date: 'shortDate'}}</td>
+                      <td>
+                          <button type="button" class="btn btn-primary" (click)="updateVehicle(vehicle.insuranceId)">
+                              Update
+                          </button>
+                      </td>
+                      <td>
+                          <button type="button" class="btn btn-danger" (click)="deleteVehicle(vehicle.insuranceId)">
+                              Delete
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

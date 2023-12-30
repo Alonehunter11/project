@@ -1,0 +1,74 @@
+<div class="container p-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #myform="ngForm" (ngSubmit)="registerNow()" class="border p-5 rounded">
+                <h1>{{ message }}</h1>
+
+                <fieldset>
+                    <legend class="text-center">Vehicle Registration Form</legend>
+
+                    <div class="form-group">
+                        <label for="vehicleNo">Vehicle Number:</label>
+                        <input type="text" class="form-control" required [(ngModel)]="vehicle.vehicleNo"
+                            name="vehicleNo" maxlength="28" placeholder="Enter vehicle number...">
+                        <div class="alert alert-danger"
+                            *ngIf="myform.controls['vehicleNo'].invalid && myform.controls['vehicleNo'].touched">
+                            Vehicle number is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicleColour"> Vehicle Colour:</label>
+                        <input type="text" class="form-control" required [(ngModel)]="vehicle.vehicleColour"
+                            name="vehicleColour" placeholder="Enter vehicle colour...">
+                        <div class="alert alert-danger"
+                            *ngIf="myform.controls['vehicleColour'].invalid && myform.controls['vehicleColour'].touched">
+                            Vehicle colour is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicleName">Vehicle Name:</label>
+                        <input type="text" class="form-control" required [(ngModel)]="vehicle.vehicleName"
+                            name="vehicleName" placeholder="Enter vehicle name...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehiclePrice">Vehicle Price:</label>
+                        <input type="number" class="form-control" required [(ngModel)]="vehicle.vehiclePrice"
+                            name="vehiclePrice" placeholder="Enter vehicle price...">
+                        <div class="alert alert-danger"
+                            *ngIf="myform.controls['vehiclePrice'].invalid && myform.controls['vehiclePrice'].touched">
+                            Vehicle price is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="insuranceStartDate">Insurance Start Date:</label>
+                        <input type="date" class="form-control" required [(ngModel)]="vehicle.insuranceStartDate"
+                            name="insuranceStartDate" placeholder="Insurance start date...">
+                        <div class="alert alert-danger"
+                            *ngIf="myform.controls['insuranceStartDate'].invalid && myform.controls['insuranceStartDate'].touched">
+                            Insurance start date is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="insuranceEndDate">Insurance End Date:</label>
+                        <input type="date" class="form-control" required [(ngModel)]="vehicle.insuranceEndDate"
+                            name="insuranceEndDate" placeholder="Insurance end date...">
+                        <div class="alert alert-danger"
+                            *ngIf="myform.controls['insuranceEndDate'].invalid && myform.controls['insuranceEndDate'].touched">
+                            Insurance end date is required
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input class="btn btn-success w-50" [disabled]="myform.invalid" type="submit" name="submit_reg"
+                            value="Register">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
